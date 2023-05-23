@@ -3,9 +3,9 @@ import MenuItem from '../MenuItem/MenuItem';
 const Menu = ({ dishes }) => {
   return (
     <ul>
-      {dishes.map(({ id, dish }) => {
+      {dishes.map(({ id, dish }, index) => {
         return (
-          <li key={id}>
+          <li key={`${index}_${id}`}>
             <MenuItem dish={dish} />
           </li>
         );
