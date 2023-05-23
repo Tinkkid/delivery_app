@@ -1,17 +1,47 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
+import { createSlice, isAnyOf } from '@reduxjs/toolkit';
+import { fetchMeals } from './mealsOperation';
 
-axios.defaults.baseURL =
-  "https://646cc2357b42c06c3b2bf569.mockapi.io/api/delivery";
+const extraActions = [fetchMeals];
 
-export const fetchMeals = createAsyncThunk(
-  "meals/fetchAllMeals",
-  async (_, { rejectWithValue }) => {
-    try {
-      const response = await axios("/meals");
-      return response.data;
-    } catch (error) {
-      return rejectWithValue(error);
-    }
-  }
-);
+const handlePending = state => {
+  state.isLoading = true;
+};
+
+const handleFulfilled = state => {
+  state.isLoading = false;
+  state.error = null;
+};
+
+const handleRejected = (state, { payload }) => {
+  state.isLoading = false;
+  state.error = payload;
+};
+
+const mealsSlice = createSlice({
+  name: 'meals',
+  initialState: {
+    items: [],
+    isLoading: false,
+    error: null,
+  },
+  extraReducers: builder => {
+    builder
+      .addCase(fetchMeals.fulfilled, (state, action) => {
+        state.items = action.payload;
+      })
+      .addMatcher(
+        isAnyOf(...extraActions.map(action => action.pending)),
+        handlePending
+      )
+      .addMatcher(
+        isAnyOf(...extraActions.map(action => action.fulfilled)),
+        handleFulfilled
+      )
+      .addMatcher(
+        isAnyOf(...extraActions.map(action => action.rejected)),
+        handleRejected
+      );
+  },
+});
+
+export default mealsSlice.reducer;
