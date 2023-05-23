@@ -1,1 +1,0 @@
-{"version":3,"file":"static/js/603.106fdb95.chunk.js","mappings":"qIAQA,UARa,WACX,OACEA,EAAAA,EAAAA,KAAA,WAAAC,UACED,EAAAA,EAAAA,KAAA,MAAAC,SAAI,UAGV,C","sources":["pages/Shops/Shops.jsx"],"sourcesContent":["const Shop = () => {\n  return (\n    <section>\n      <h1>gora</h1>\n    </section>\n  );\n};\n\nexport default Shop;\n"],"names":["_jsx","children"],"sourceRoot":""}
