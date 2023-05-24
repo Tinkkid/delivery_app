@@ -1,1 +1,0 @@
-{"version":3,"file":"static/js/577.6f20cd77.chunk.js","mappings":"qIAUA,UARa,WAGX,OACAA,EAAAA,EAAAA,KAAA,MAAAC,SAAI,QAEN,C","sources":["pages/Cart/Cart.jsx"],"sourcesContent":["\n\nconst Cart = () => {\n  \n\n  return (\n  <h2>ffff</h2>\n  );\n};\n\nexport default Cart;\n"],"names":["_jsx","children"],"sourceRoot":""}
