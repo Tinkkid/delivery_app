@@ -4,6 +4,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 
 const MenuItem = ({ dish, price, image }) => {
   return (
@@ -24,7 +25,10 @@ const MenuItem = ({ dish, price, image }) => {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">Add to cart</Button>
+        <Button size="small">
+          Add to cart
+          <AddShoppingCartIcon />
+        </Button>
       </CardActions>
     </Card>
   );

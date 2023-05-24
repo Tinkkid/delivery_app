@@ -1,10 +1,13 @@
-
+import ClientForm from '../../components/ClientForm/ClientForm';
+import { FormContainer, Container } from './Cart.styled';
 
 const Cart = () => {
-  
-
   return (
-  <h2>ffff</h2>
+    <Container>
+      <FormContainer>
+        <ClientForm />
+      </FormContainer>
+    </Container>
   );
 };
 
