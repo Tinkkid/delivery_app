@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { Field, Form, ErrorMessage } from 'formik';
+import { Field, ErrorMessage } from 'formik';
 
 export const Error = styled(ErrorMessage)`
   color: #1f2029;
