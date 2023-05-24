@@ -1,20 +1,31 @@
-import { Navigate, Route, Routes } from "react-router-dom";
-import { lazy } from "react";
-import Layout from "./components/Layout/Layout";
+import { Navigate, Route, Routes } from 'react-router-dom';
+import { lazy } from 'react';
+import Header from './components/Header/Header';
+// import Layout from './components/Layout/Layout';
 
-const Shop = lazy(() => import("./pages/Shops/Shops.jsx"));
-const Cart = lazy(() => import("./pages/Cart/Cart.jsx"));
+const Shop = lazy(() => import('./pages/Shops/Shops.jsx'));
+const CartPage = lazy(() => import('./pages/CartPage/CartPage.jsx'));
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Layout />}>
+    <>
+      {/* <Header /> */}
+      <Routes>
         <Route index element={<Shop />} />
-        <Route path="/cart" element={<Cart />}></Route>
+        <Route path="/cart" element={<CartPage />}></Route>
         <Route path="*" element={<Navigate to="/" />}></Route>
-      </Route>
-    </Routes>
+      </Routes>
+    </>
   );
 }
+
+//  <>
+//    {/* <Header /> */}
+//    <Routes>
+//      <Route index element={<Shop />} />
+//      <Route path="/cart" element={<CartPage />}></Route>
+//      <Route path="*" element={<Navigate to="/" />}></Route>
+//    </Routes>
+//  </>;
 
 export default App;

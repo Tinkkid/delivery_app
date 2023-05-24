@@ -4,10 +4,9 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 
-const MenuItem = ({ item, handleClickAdd }) => {
-  const { dish, img, price } = item;
+const Cart = ({ orders }) => {
+  const { dish, img, price, quantity } = orders;
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardMedia
@@ -26,13 +25,14 @@ const MenuItem = ({ item, handleClickAdd }) => {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small" onClick={() => handleClickAdd(item)}>
-          Add to cart
-          <AddShoppingCartIcon style={{ marginLeft: 10 }} />
-        </Button>
+        <Button size="small">-</Button>
+        <Typography variant="body2" color="text.secondary">
+          {quantity}
+        </Typography>
+        <Button size="small">+</Button>
       </CardActions>
     </Card>
   );
 };
 
-export default MenuItem;
+export default Cart;

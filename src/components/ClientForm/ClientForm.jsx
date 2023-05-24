@@ -1,5 +1,6 @@
 import { Formik, Form } from 'formik';
 import * as yup from 'yup';
+import CartList from '../CartList/CartList';
 import {
   BtnSubmit,
   Error,
@@ -34,7 +35,7 @@ const initialValues = {
   adress: '',
 };
 
-const ClientForm = () => {
+const ClientForm = ({ cart }) => {
   return (
     <Formik
       initialValues={initialValues}
@@ -77,7 +78,7 @@ const ClientForm = () => {
             </LabelInput>
           </FormWrap>
           <OrdersWrap>
-            <p>Bla</p>
+            <p>nnnn</p>
           </OrdersWrap>
         </CartWrap>
         <BtnSubmit type="submit">Submit</BtnSubmit>

@@ -1,13 +1,13 @@
 import MenuItem from '../MenuItem/MenuItem';
 import { MenuWrap, MenuList } from './Menu.styled';
 
-const Menu = ({ dishes }) => {
+const Menu = ({ dishes, handleClickAdd }) => {
   return (
     <MenuWrap>
-      {dishes.map(({ id, dish, price, img }, index) => {
+      {dishes.map((item, index) => {
         return (
-          <MenuList key={`${index}_${id}`}>
-            <MenuItem dish={dish} price={price} image={img} />
+          <MenuList key={`${index}_${item.id}`}>
+            <MenuItem item={item} handleClickAdd={handleClickAdd} />
           </MenuList>
         );
       })}

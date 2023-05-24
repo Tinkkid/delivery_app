@@ -19,7 +19,7 @@ const shops = [
   },
   {
     id: '5',
-    name: 'Salaturia',
+    name: 'Berdichev Croissant',
   },
 ];
 
