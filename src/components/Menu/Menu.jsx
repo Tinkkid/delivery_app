@@ -1,16 +1,17 @@
 import MenuItem from '../MenuItem/MenuItem';
+import { MenuWrap, MenuList } from './Menu.styled';
 
 const Menu = ({ dishes }) => {
   return (
-    <ul>
-      {dishes.map(({ id, dish }, index) => {
+    <MenuWrap>
+      {dishes.map(({ id, dish, price, img }, index) => {
         return (
-          <li key={`${index}_${id}`}>
-            <MenuItem dish={dish} />
-          </li>
+          <MenuList key={`${index}_${id}`}>
+            <MenuItem dish={dish} price={price} image={img} />
+          </MenuList>
         );
       })}
-    </ul>
+    </MenuWrap>
   );
 };
 

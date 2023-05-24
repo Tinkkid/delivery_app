@@ -1,3 +1,5 @@
+import { Container, Button } from './ShopsContainer.styled';
+
 const shops = [
   {
     id: '1',
@@ -21,13 +23,19 @@ const shops = [
   },
 ];
 
-const ShopsContainer = () => {
+const ShopsContainer = ({ handleClick }) => {
   return (
-    <div>
-      {shops.map(shop => {
-        return <button key={shop.id}>{shop.name}</button>;
-      })}
-    </div>
+    <Container>
+      {shops.map((shop, index) => (
+        <Button
+          key={`${shop.id}_${index}`}
+          value={shop.value}
+          onClick={handleClick}
+        >
+          {shop.name}
+        </Button>
+      ))}
+    </Container>
   );
 };
 
