@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/delivery_app/static/css/main.781b9f92.css",
-    "main.js": "/delivery_app/static/js/main.d4ede4b0.js",
+    "main.js": "/delivery_app/static/js/main.5a941be9.js",
     "static/media/order.png": "/delivery_app/static/media/order.99c616b86bdda1d00cdc.png",
     "static/media/Montserrat-Medium.ttf": "/delivery_app/static/media/Montserrat-Medium.a281f04d4c8926e7dea1.ttf",
     "index.html": "/delivery_app/index.html",
     "main.781b9f92.css.map": "/delivery_app/static/css/main.781b9f92.css.map",
-    "main.d4ede4b0.js.map": "/delivery_app/static/js/main.d4ede4b0.js.map"
+    "main.5a941be9.js.map": "/delivery_app/static/js/main.5a941be9.js.map"
   },
   "entrypoints": [
     "static/css/main.781b9f92.css",
-    "static/js/main.d4ede4b0.js"
+    "static/js/main.5a941be9.js"
   ]
 }
