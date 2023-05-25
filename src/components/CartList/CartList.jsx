@@ -4,7 +4,6 @@ import {
   removeFromCart,
   changeQuantity,
   getCartTotal,
-  clearCart,
 } from '../../redux/cartSlice';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
@@ -16,17 +15,19 @@ import { OrderList, CartWrap } from './CartList.styled';
 
 const CartList = () => {
   const dispatch = useDispatch();
-  const {
-    data: cartProducts,
-    totalItems,
-    totalAmount,
-    deliveryCharge,
-  } = useSelector(state => state.cart);
+  const { data: cartProducts, totalAmount } = useSelector(state => state.cart);
 
   useEffect(() => {
     dispatch(getCartTotal());
     // eslint-disable-next-line
   }, [useSelector(state => state.cart)]);
+
+  const formatPrice = price => {
+    return new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'UAH',
+    }).format(price);
+  };
 
   return (
     <CartWrap>
@@ -50,22 +51,38 @@ const CartList = () => {
                 </Typography>
               </CardContent>
               <CardActions>
-                <Button size="small">-</Button>
+                <Button
+                  size="small"
+                  onClick={() =>
+                    dispatch(changeQuantity({ id: product.id, type: 'DEC' }))
+                  }
+                >
+                  -
+                </Button>
                 <Typography variant="body2" color="text.secondary">
                   {product.quantity}
                 </Typography>
-                <Button size="small">+</Button>
+                <Button
+                  size="small"
+                  onClick={() =>
+                    dispatch(changeQuantity({ id: product.id, type: 'INC' }))
+                  }
+                >
+                  +
+                </Button>
                 <Button
                   size="small"
                   onClick={() => dispatch(removeFromCart(product.id))}
                 >
                   Remove
                 </Button>
+                <Typography>{product.totalPrice}</Typography>
               </CardActions>
             </Card>
           </OrderList>
         );
       })}
+      <div>{formatPrice(totalAmount)}</div>
     </CartWrap>
   );
 };

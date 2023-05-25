@@ -19,5 +19,5 @@ export const CartWrap = styled.ul`
 `;
 
 export const OrderList = styled.li`
-  width: 220px;
+  width: 100%;
 `;
