@@ -18,19 +18,12 @@ import { OrderList, CartWrap } from './CartList.styled';
 
 const CartList = () => {
   const dispatch = useDispatch();
-  const { data: cartProducts, totalAmount } = useSelector(state => state.cart);
+  const { data: cartProducts } = useSelector(state => state.cart);
 
   useEffect(() => {
     dispatch(getCartTotal());
     // eslint-disable-next-line
   }, [useSelector(state => state.cart)]);
-
-  // const formatPrice = price => {
-  //   return new Intl.NumberFormat('en-US', {
-  //     style: 'currency',
-  //     currency: 'UAH',
-  //   }).format(price);
-  // };
 
   const calculatePrice = cartProducts
     .map(item => item.price * item.quantity)
@@ -84,7 +77,7 @@ const CartList = () => {
           </OrderList>
         );
       })}
-      <div>{calculatePrice} UAH</div>
+      <div>Total price {calculatePrice} UAH</div>
     </CartWrap>
   );
 };

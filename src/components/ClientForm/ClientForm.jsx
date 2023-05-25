@@ -1,5 +1,7 @@
 import { Formik, Form } from 'formik';
 import * as yup from 'yup';
+import { toast } from 'react-toastify';
+import { useDispatch } from 'react-redux';
 import { FiUser, FiPhone } from 'react-icons/fi';
 import { HiOutlineMail, HiOutlineLocationMarker } from 'react-icons/hi';
 import CartList from '../CartList/CartList';
@@ -15,6 +17,7 @@ import {
   OrdersWrap,
   IconUser,
 } from './ClientForm.styled';
+import { addOrder } from '../../redux/ordersOperation';
 
 const RegisterSchema = yup.object().shape({
   name: yup
@@ -39,14 +42,29 @@ const initialValues = {
 };
 
 const ClientForm = () => {
+  const dispatch = useDispatch();
+
+  const handleSubmit = (values, { resetForm }) => {
+    dispatch(
+      addOrder({
+        name: values.name,
+        email: values.email,
+        phone: values.password,
+        adress: values.adress,
+      })
+    )
+      .unwrap()
+      .then(() => toast.success('Registration is successfully!'))
+      .catch(() => console.log('some weong'));
+    console.log(values);
+    resetForm();
+  };
+
   return (
     <Formik
       initialValues={initialValues}
       validationSchema={RegisterSchema}
-      onSubmit={async values => {
-        await new Promise(r => setTimeout(r, 500));
-        alert(JSON.stringify(values, null, 2));
-      }}
+      onSubmit={handleSubmit}
     >
       <Form autoComplete="off">
         <CartWrap>

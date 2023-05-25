@@ -5,7 +5,6 @@ import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
 
 const Header = () => {
   const data = useSelector(state => state.cart);
-  console.log(data);
 
   return (
     <AppBar position="static" sx={styleBar.appbar}>
