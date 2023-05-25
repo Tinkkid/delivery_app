@@ -1,15 +1,15 @@
 import React from 'react';
 
-import Cart from '../Cart/Cart';
+import CartItem from '../CartItem/CartItem';
 import { OrderList, CartWrap } from './CartList.styled';
 
 const CartList = ({ cart }) => {
   return (
     <CartWrap>
-      {cart.map((cartItem, index) => {
+      {cart.map((product, index) => {
         return (
-          <OrderList key={`${index}_${cartItem.id}`}>
-            <Cart orders={cartItem} />
+          <OrderList key={`${index}_${product.id}`}>
+            <CartItem orders={product} />
           </OrderList>
         );
       })}

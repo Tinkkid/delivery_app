@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/dist/query';
 import cartReducer from './cartSlice';
-import { menuApi } from './dishesSlice';
+import { menuApi } from './menuSlice';
 
 export const store = configureStore({
   reducer: {

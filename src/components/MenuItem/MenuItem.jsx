@@ -6,8 +6,8 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 
-const MenuItem = ({ item, handleClickAdd }) => {
-  const { dish, img, price } = item;
+const MenuItem = ({ product }) => {
+  const { dish, img, price } = product;
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardMedia
@@ -26,7 +26,7 @@ const MenuItem = ({ item, handleClickAdd }) => {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small" onClick={() => handleClickAdd(item)}>
+        <Button size="small">
           Add to cart
           <AddShoppingCartIcon style={{ marginLeft: 10 }} />
         </Button>

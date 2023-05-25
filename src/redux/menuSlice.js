@@ -11,14 +11,7 @@ export const menuApi = createApi({
       query: () => `/menu`,
       providesTags: ['Menu'],
     }),
-    deleteOrder: builder.mutation({
-      query: id => ({
-        url: `/menu/${id}`,
-        method: 'DELETE',
-      }),
-      invalidatesTags: ['Menu'],
-    }),
   }),
 });
 
-export const { useFetchMenuQuery, useDeleteOrderMutation } = menuApi;
+export const { useFetchMenuQuery } = menuApi;

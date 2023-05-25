@@ -1,4 +1,4 @@
-import { Container, Button } from './ShopsContainer.styled';
+import { Container, Button } from './ShopsList.styled';
 
 const shops = [
   {
@@ -23,7 +23,7 @@ const shops = [
   },
 ];
 
-const ShopsContainer = ({ handleClick }) => {
+const ShopsList = ({ handleClick }) => {
   return (
     <Container>
       {shops.map((shop, index) => (
@@ -39,4 +39,4 @@ const ShopsContainer = ({ handleClick }) => {
   );
 };
 
-export default ShopsContainer;
+export default ShopsList;
