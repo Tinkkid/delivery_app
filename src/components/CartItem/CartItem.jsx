@@ -6,32 +6,32 @@ import { useDispatch } from 'react-redux';
 
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import {
-  addToCart,
-  decreaseCart,
-  removeFromCart,
-  clearCart,
-} from '../../redux/cartSlice';
+// import {
+//   addToCart,
+//   decreaseCart,
+//   removeFromCart,
+//   clearCart,
+// } from '../../redux/cartSlice';
 
-const Cart = ({ orders }) => {
-  const dispatch = useDispatch();
+const Cart = ({ product }) => {
+  // const dispatch = useDispatch();
 
-  const handleAddToCart = product => {
-    dispatch(addToCart(product));
-  };
+  // const handleAddToCart = product => {
+  //   dispatch(addToCart(product));
+  // };
 
-  const handleDecreaseCart = product => {
-    dispatch(decreaseCart(product));
-  };
-  const handleRemoveFromCart = product => {
-    dispatch(removeFromCart(product));
-  };
-  const handleClearCart = () => {
-    dispatch(clearCart());
-  };
+  // const handleDecreaseCart = product => {
+  //   dispatch(decreaseCart(product));
+  // };
+  // const handleRemoveFromCart = product => {
+  //   dispatch(removeFromCart(product));
+  // };
+  // const handleClearCart = () => {
+  //   dispatch(clearCart());
+  // };
 
-  const { dish, img, price, cartQuantity } = orders;
-  console.log(orders);
+  const { dish, img, price } = product;
+
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardMedia
@@ -50,18 +50,12 @@ const Cart = ({ orders }) => {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small" onClick={() => handleDecreaseCart(orders)}>
-          -
-        </Button>
+        <Button size="small">-</Button>
         <Typography variant="body2" color="text.secondary">
-          {cartQuantity}
+          {'1'}
         </Typography>
-        <Button size="small" onClick={() => handleAddToCart(orders)}>
-          +
-        </Button>
-        <Button size="small" onClick={() => handleRemoveFromCart(orders)}>
-          Remove
-        </Button>
+        <Button size="small">+</Button>
+        <Button size="small">Remove</Button>
       </CardActions>
     </Card>
   );

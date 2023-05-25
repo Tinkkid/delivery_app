@@ -1,5 +1,4 @@
 import { Formik, Form } from 'formik';
-import { useSelector } from 'react-redux';
 import * as yup from 'yup';
 import CartList from '../CartList/CartList';
 import {
@@ -37,8 +36,6 @@ const initialValues = {
 };
 
 const ClientForm = () => {
-  const cart = useSelector(state => state.cart);
-
   return (
     <Formik
       initialValues={initialValues}
@@ -83,11 +80,7 @@ const ClientForm = () => {
 
           <OrdersWrap>
             <h2>My cart</h2>
-            {cart.cartItems.lenght === 0 ? (
-              <p>EMPTY cart</p>
-            ) : (
-              <CartList cart={cart.cartItems} />
-            )}
+            <CartList />
           </OrdersWrap>
         </CartWrap>
         <BtnSubmit type="submit">Submit</BtnSubmit>
