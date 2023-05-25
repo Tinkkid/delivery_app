@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import Notiflix from 'notiflix';
 
 const getFromLocalStorage = () => {
   let cart = localStorage.getItem('cart');
@@ -47,6 +48,7 @@ const cartSlice = createSlice({
     removeFromCart(state, action) {
       const cartItem = state.data.filter(item => item.id !== action.payload);
       state.data = cartItem;
+      Notiflix.Notify.failure('Product remove from cart');
       setToLocalStorage(state.data);
     },
     changeQuantity(state, action) {

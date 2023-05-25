@@ -1,7 +1,7 @@
 import { Formik, Form } from 'formik';
 import * as yup from 'yup';
-import { toast } from 'react-toastify';
-import { useDispatch } from 'react-redux';
+import Notiflix from 'notiflix';
+import { useDispatch, useSelector } from 'react-redux';
 import { FiUser, FiPhone } from 'react-icons/fi';
 import { HiOutlineMail, HiOutlineLocationMarker } from 'react-icons/hi';
 import CartList from '../CartList/CartList';
@@ -34,15 +34,18 @@ const RegisterSchema = yup.object().shape({
   adress: yup.string('Enter your adress').required('Adress is required field.'),
 });
 
-const initialValues = {
-  name: '',
-  email: '',
-  phone: '',
-  adress: '',
-};
-
 const ClientForm = () => {
   const dispatch = useDispatch();
+  const data = useSelector(state => state.cart);
+  console.log(data);
+
+  const initialValues = {
+    name: '',
+    email: '',
+    phone: '',
+    adress: '',
+    data: { ...data },
+  };
 
   const handleSubmit = (values, { resetForm }) => {
     dispatch(
@@ -51,11 +54,12 @@ const ClientForm = () => {
         email: values.email,
         phone: values.password,
         adress: values.adress,
+        data: { ...data },
       })
     )
       .unwrap()
-      .then(() => toast.success('Registration is successfully!'))
-      .catch(() => console.log('some weong'));
+      .then(() => Notiflix.Notify.success('Order sent successfully!'))
+      .catch(() => Notiflix.Notify.warning('Something wrong'));
     console.log(values);
     resetForm();
   };

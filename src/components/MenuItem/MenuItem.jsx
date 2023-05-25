@@ -5,7 +5,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
-import { toast } from 'react-toastify';
+import Notiflix from 'notiflix';
 import { styleBtn } from './MenuItem.styled';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../../redux/cartSlice';
@@ -21,7 +21,7 @@ const MenuItem = ({ product }) => {
         quantity: 1,
       })
     );
-    toast.success('Added product to cart');
+    Notiflix.Notify.success('Added product to cart');
   };
 
   return (
