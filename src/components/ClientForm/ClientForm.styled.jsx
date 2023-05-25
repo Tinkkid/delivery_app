@@ -49,6 +49,7 @@ export const LabelInput = styled.label`
 export const BtnSubmit = styled.button`
   border-radius: 4px;
   height: 44px;
+  margin-top: 40px;
   font-size: 16px;
   font-weight: 600;
   text-transform: uppercase;
@@ -62,12 +63,12 @@ export const BtnSubmit = styled.button`
   border: none;
   cursor: pointer;
   background-color: #ffeba7;
-  color: #102770;
+  color: #1377daf8;
   box-shadow: 0 8px 24px 0 rgba(255, 235, 167, 0.2);
 
   &:focus,
   &:hover {
-    background-color: #102770;
+    background-color: #1377daf8;
     color: #ffeba7;
     box-shadow: 0 8px 24px 0 rgba(16, 39, 112, 0.2);
   }
@@ -78,7 +79,7 @@ export const IconUser = styled.i`
   top: 0;
   left: 10%;
   font-size: 18px;
-  color: #ffeba7;
+  color: #0f62b5f8;
 `;
 
 export const InputContainer = styled.div`
@@ -89,4 +90,6 @@ export const InputContainer = styled.div`
 
 export const TitleLable = styled.span`
   margin-left: 20px;
+  text-align: start;
+  font-size: 24px;
 `;

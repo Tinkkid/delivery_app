@@ -18,6 +18,12 @@ export const CartWrap = styled.ul`
   }
 `;
 
-export const OrderList = styled.li`
-  width: 100%;
-`;
+export const OrderList = styled.li``;
+
+export const styleBtn = {
+  btn: {
+    bgcolor: '#a1c0dff8',
+    fontFamily: 'Montserrat',
+    width: '100%',
+  },
+};

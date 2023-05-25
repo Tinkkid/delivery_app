@@ -1,5 +1,7 @@
 import { Formik, Form } from 'formik';
 import * as yup from 'yup';
+import { FiUser, FiPhone } from 'react-icons/fi';
+import { HiOutlineMail, HiOutlineLocationMarker } from 'react-icons/hi';
 import CartList from '../CartList/CartList';
 import {
   BtnSubmit,
@@ -11,6 +13,7 @@ import {
   TitleLable,
   CartWrap,
   OrdersWrap,
+  IconUser,
 } from './ClientForm.styled';
 
 const RegisterSchema = yup.object().shape({
@@ -51,6 +54,9 @@ const ClientForm = () => {
             <LabelInput>
               <TitleLable>Name</TitleLable>
               <InputContainer>
+                <IconUser>
+                  <FiUser />
+                </IconUser>
                 <Input type="text" name="name" />
               </InputContainer>
               <Error name="name" component="div" />
@@ -58,6 +64,9 @@ const ClientForm = () => {
             <LabelInput>
               <TitleLable>Email</TitleLable>
               <InputContainer>
+                <IconUser>
+                  <HiOutlineMail />
+                </IconUser>
                 <Input type="email" name="email" />
               </InputContainer>
               <Error name="email" component="div" />
@@ -65,6 +74,9 @@ const ClientForm = () => {
             <LabelInput>
               <TitleLable>Phone</TitleLable>
               <InputContainer>
+                <IconUser>
+                  <FiPhone />
+                </IconUser>
                 <Input type="phone" name="phone" />
               </InputContainer>
               <Error name="phone" component="div" />
@@ -72,12 +84,14 @@ const ClientForm = () => {
             <LabelInput>
               <TitleLable>Adress</TitleLable>
               <InputContainer>
+                <IconUser>
+                  <HiOutlineLocationMarker />
+                </IconUser>
                 <Input type="adress" name="adress" />
               </InputContainer>
               <Error name="adress" component="div" />
             </LabelInput>
           </FormWrap>
-
           <OrdersWrap>
             <h2>My cart</h2>
             <CartList />

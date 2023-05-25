@@ -11,6 +11,9 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
+import AddCircleIcon from '@mui/icons-material/AddCircle';
+import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
 import { OrderList, CartWrap } from './CartList.styled';
 
 const CartList = () => {
@@ -22,12 +25,16 @@ const CartList = () => {
     // eslint-disable-next-line
   }, [useSelector(state => state.cart)]);
 
-  const formatPrice = price => {
-    return new Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency: 'UAH',
-    }).format(price);
-  };
+  // const formatPrice = price => {
+  //   return new Intl.NumberFormat('en-US', {
+  //     style: 'currency',
+  //     currency: 'UAH',
+  //   }).format(price);
+  // };
+
+  const calculatePrice = cartProducts
+    .map(item => item.price * item.quantity)
+    .reduce((prev, curr) => prev + curr, 0);
 
   return (
     <CartWrap>
@@ -43,12 +50,10 @@ const CartList = () => {
                 image={product.img}
               />
               <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
+                <Typography gutterBottom variant="button" component="div">
                   {product.dish}
                 </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  {product.price}
-                </Typography>
+                <Typography variant="caption">{product.price} UAH</Typography>
               </CardContent>
               <CardActions>
                 <Button
@@ -57,32 +62,29 @@ const CartList = () => {
                     dispatch(changeQuantity({ id: product.id, type: 'DEC' }))
                   }
                 >
-                  -
+                  <RemoveCircleIcon />
                 </Button>
-                <Typography variant="body2" color="text.secondary">
-                  {product.quantity}
-                </Typography>
+                <Typography variant="button">{product.quantity}</Typography>
                 <Button
                   size="small"
                   onClick={() =>
                     dispatch(changeQuantity({ id: product.id, type: 'INC' }))
                   }
                 >
-                  +
+                  <AddCircleIcon />
                 </Button>
                 <Button
                   size="small"
                   onClick={() => dispatch(removeFromCart(product.id))}
                 >
-                  Remove
+                  <DeleteForeverIcon />
                 </Button>
-                <Typography>{product.totalPrice}</Typography>
               </CardActions>
             </Card>
           </OrderList>
         );
       })}
-      <div>{formatPrice(totalAmount)}</div>
+      <div>{calculatePrice} UAH</div>
     </CartWrap>
   );
 };

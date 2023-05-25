@@ -6,6 +6,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import { toast } from 'react-toastify';
+import { styleBtn } from './MenuItem.styled';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../../redux/cartSlice';
 
@@ -33,15 +34,15 @@ const MenuItem = ({ product }) => {
         image={img}
       />
       <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
+        <Typography gutterBottom variant="button" component="div">
           {dish}
         </Typography>
-        <Typography variant="body2" color="text.secondary">
-          {price}
+        <Typography variant="caption" color="text.secondary">
+          {price} UAH
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small" onClick={handleAddToCart}>
+        <Button sx={styleBtn.btn} size="small" onClick={handleAddToCart}>
           Add to cart
           <AddShoppingCartIcon style={{ marginLeft: 10 }} />
         </Button>
