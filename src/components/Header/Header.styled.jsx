@@ -6,7 +6,7 @@ export const StyledLink = styled(NavLink)`
   text-decoration: none;
 
   &.active {
-    color: green;
+    color: #e9e622de;
   }
 `;
 

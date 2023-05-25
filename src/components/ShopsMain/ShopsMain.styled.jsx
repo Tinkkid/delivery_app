@@ -9,7 +9,9 @@ export const Container = styled.div`
 
 export const Text = styled.h1`
   font-weight: 700;
-  font-size: 30px;
+  font-size: 26px;
+  font-family: 'Montserrat';
+  color: #050a3c;
 `;
 
 export const Image = styled.img`

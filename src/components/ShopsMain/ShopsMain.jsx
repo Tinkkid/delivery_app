@@ -4,8 +4,11 @@ import order from '../../assets/img/order.png';
 const ShopsMain = () => {
   return (
     <Container>
-      <Text>Choise tasty dish</Text>
       <Image src={order} alt="main dish" />
+      <Text>
+        Choose what you like and enjoy! To place an order, choose one of the
+        restaurants and add the dish to the cart.
+      </Text>
     </Container>
   );
 };

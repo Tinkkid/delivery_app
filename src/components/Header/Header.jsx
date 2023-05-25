@@ -1,8 +1,12 @@
 import { AppBar, Toolbar, Typography } from '@mui/material';
 import { styleBar, StyledLink } from './Header.styled';
+import { useSelector } from 'react-redux';
 import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
 
-const Header = props => {
+const Header = () => {
+  const data = useSelector(state => state.cart);
+  console.log(data);
+
   return (
     <AppBar position="static" sx={styleBar.appbar}>
       <Toolbar sx={styleBar.toolbar}>
@@ -15,7 +19,7 @@ const Header = props => {
           <Typography variant="h5" component="span">
             Cart
             <ShoppingCartCheckoutIcon style={{ marginLeft: 10 }} />
-            <sup>{props.count}</sup>
+            <sup>{data.totalItems}</sup>
           </Typography>
         </StyledLink>
       </Toolbar>
