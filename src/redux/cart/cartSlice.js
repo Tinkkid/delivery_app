@@ -48,7 +48,9 @@ const cartSlice = createSlice({
     removeFromCart(state, action) {
       const cartItem = state.data.filter(item => item.id !== action.payload);
       state.data = cartItem;
-      Notiflix.Notify.failure('Product remove from cart');
+      Notiflix.Notify.failure('Product remove from cart', {
+        position: 'center-top',
+      });
       setToLocalStorage(state.data);
     },
     changeQuantity(state, action) {
@@ -57,11 +59,11 @@ const cartSlice = createSlice({
           let newQuantity = item.quantity;
           let newTotalPrice = item.totalPrice;
           if (action.payload.type === 'INC') {
-            newQuantity++;
+            newQuantity += newQuantity;
             newTotalPrice = newQuantity * item.price;
           }
           if (action.payload.type === 'DEC') {
-            newQuantity--;
+            newQuantity -= newQuantity;
             if (newQuantity < 1) newQuantity = 1;
             newTotalPrice = newQuantity * item.price;
           }
@@ -75,7 +77,7 @@ const cartSlice = createSlice({
     },
     getCartTotal(state) {
       state.totalAmount = state.data
-        .map(item => item.price * item.quantity)
+        .map(item => item.totalPrice)
         .reduce((prev, curr) => prev + curr, 0);
       state.totalItems = state.data.length;
     },

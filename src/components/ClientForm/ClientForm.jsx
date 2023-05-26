@@ -64,7 +64,11 @@ const ClientForm = () => {
       })
     )
       .unwrap()
-      .then(() => Notiflix.Notify.success('Order sent successfully!'))
+      .then(() =>
+        Notiflix.Notify.success('Order sent successfully!', {
+          position: 'center-top',
+        })
+      )
       .catch(() => Notiflix.Notify.warning('Something wrong'));
     resetForm();
   };

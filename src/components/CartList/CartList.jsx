@@ -1,6 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { removeFromCart, changeQuantity } from '../../redux/cart/cartSlice';
+import {
+  removeFromCart,
+  changeQuantity,
+  getCartTotal,
+} from '../../redux/cart/cartSlice';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -16,6 +20,10 @@ import { selectCart } from '../../redux/selectors';
 const CartList = () => {
   const dispatch = useDispatch();
   const { data: cartProducts } = useSelector(selectCart);
+
+  useEffect(() => {
+    dispatch(getCartTotal());
+  }, [dispatch]);
 
   return (
     <CartWrap>

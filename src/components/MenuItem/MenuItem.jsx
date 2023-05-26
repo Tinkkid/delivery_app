@@ -21,7 +21,9 @@ const MenuItem = ({ product }) => {
         quantity: 1,
       })
     );
-    Notiflix.Notify.success('Added product to cart');
+    Notiflix.Notify.success('Added product to cart', {
+      position: 'center-top',
+    });
   };
 
   return (
