@@ -8,7 +8,7 @@ import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import Notiflix from 'notiflix';
 import { styleBtn } from './MenuItem.styled';
 import { useDispatch } from 'react-redux';
-import { addToCart } from '../../redux/cartSlice';
+import { addToCart } from '../../redux/cart/cartSlice';
 
 const MenuItem = ({ product }) => {
   const { dish, img, price } = product;

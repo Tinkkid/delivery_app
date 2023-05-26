@@ -4,7 +4,7 @@ import ShopsList from '../../components/ShopsList/ShopsList';
 import ShopsMain from '../../components/ShopsMain/ShopsMain';
 import { Container } from './Home.styled';
 import { Loader } from '../../components/Loader/Loader';
-import { useFetchMenuQuery } from '../../redux/menuSlice';
+import { useFetchMenuQuery } from '../../redux/menu/menuSlice';
 
 const Home = () => {
   const [filtredProduct, setFiltredProduct] = useState([]);

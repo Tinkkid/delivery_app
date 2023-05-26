@@ -3,9 +3,10 @@ import { styleBar, StyledLink } from './Header.styled';
 import { useSelector } from 'react-redux';
 import React from 'react';
 import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
+import { selectCart } from '../../redux/selectors';
 
 const Header = () => {
-  const data = useSelector(state => state.cart);
+  const data = useSelector(selectCart);
 
   return (
     <AppBar position="static" sx={styleBar.appbar}>

@@ -19,7 +19,8 @@ import {
   IconUser,
   NoOrder,
 } from './ClientForm.styled';
-import { addOrder } from '../../redux/ordersOperation';
+import { addOrder } from '../../redux/order/ordersOperation';
+import { selectCart } from '../../redux/selectors';
 
 const RegisterSchema = yup.object().shape({
   name: yup
@@ -38,7 +39,7 @@ const RegisterSchema = yup.object().shape({
 
 const ClientForm = () => {
   const dispatch = useDispatch();
-  const { data: cartProducts } = useSelector(state => state.cart);
+  const { data: cartProducts } = useSelector(selectCart);
 
   const initialValues = {
     name: '',

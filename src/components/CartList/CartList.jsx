@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { removeFromCart, changeQuantity } from '../../redux/cartSlice';
+import { removeFromCart, changeQuantity } from '../../redux/cart/cartSlice';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -11,10 +11,11 @@ import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
 import { OrderList, CartWrap, styleBtn } from './CartList.styled';
+import { selectCart } from '../../redux/selectors';
 
 const CartList = () => {
   const dispatch = useDispatch();
-  const { data: cartProducts } = useSelector(state => state.cart);
+  const { data: cartProducts } = useSelector(selectCart);
 
   return (
     <CartWrap>
