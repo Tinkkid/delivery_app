@@ -5,7 +5,7 @@ two pages (Shops and Cart). In the cart, you can increase or decrease the number
 of dishes, and see the total cost of the order. Contact clients`s details along
 with the order can be seen in the database (Mockapi)
 
-Link to live page:(Delivery App)[https://tinkkid.github.io/delivery_app/]
+Link to live page [Delivery App](https://tinkkid.github.io/delivery_app/)
 
 Database for checking customer orders
 [there](https://646cc2357b42c06c3b2bf569.mockapi.io/api/delivery/orders) (you
@@ -28,7 +28,7 @@ can checking in Postman)
 1. Clone this repository:
 
 ```bash
-git clone <https://github.com/Tinkkid/delivery_app.git>
+git clone https://github.com/Tinkkid/delivery_app.git
 ```
 
 2. Install all dependencies:
