@@ -22,8 +22,9 @@ export const OrderList = styled.li``;
 
 export const styleBtn = {
   btn: {
+    margin: 0,
+  },
+  removeBtn: {
     bgcolor: '#a1c0dff8',
-    fontFamily: 'Montserrat',
-    width: '100%',
   },
 };

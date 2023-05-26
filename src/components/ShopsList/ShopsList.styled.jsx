@@ -26,6 +26,10 @@ export const Button = styled.button`
   width: 190px;
   padding: 30px 10px;
 
+  @media screen and (min-width: 768px) {
+    width: 300px;
+    padding: 40px 10px;
+  }
   &:hover {
     opacity: 0.7;
     color: #e9e622de;

@@ -13,9 +13,11 @@ import {
   InputContainer,
   LabelInput,
   TitleLable,
+  TotalPrice,
   CartWrap,
   OrdersWrap,
   IconUser,
+  NoOrder,
 } from './ClientForm.styled';
 import { addOrder } from '../../redux/ordersOperation';
 
@@ -36,31 +38,33 @@ const RegisterSchema = yup.object().shape({
 
 const ClientForm = () => {
   const dispatch = useDispatch();
-  const data = useSelector(state => state.cart);
-  console.log(data);
+  const { data: cartProducts } = useSelector(state => state.cart);
 
   const initialValues = {
     name: '',
     email: '',
     phone: '',
     adress: '',
-    data: { ...data },
+    data: { ...cartProducts },
   };
+
+  const calculatePrice = cartProducts
+    .map(item => item.price * item.quantity)
+    .reduce((prev, curr) => prev + curr, 0);
 
   const handleSubmit = (values, { resetForm }) => {
     dispatch(
       addOrder({
         name: values.name,
         email: values.email,
-        phone: values.password,
+        phone: values.phone,
         adress: values.adress,
-        data: { ...data },
+        data: { ...cartProducts },
       })
     )
       .unwrap()
       .then(() => Notiflix.Notify.success('Order sent successfully!'))
       .catch(() => Notiflix.Notify.warning('Something wrong'));
-    console.log(values);
     resetForm();
   };
 
@@ -113,13 +117,20 @@ const ClientForm = () => {
               </InputContainer>
               <Error name="adress" component="div" />
             </LabelInput>
+            <TotalPrice>Total price {calculatePrice} UAH</TotalPrice>
+            <BtnSubmit type="submit">Submit</BtnSubmit>
           </FormWrap>
           <OrdersWrap>
-            <h2>My cart</h2>
-            <CartList />
+            {calculatePrice ? (
+              <CartList />
+            ) : (
+              <NoOrder>
+                Your cart is empty. Please, return to the restaurant list and
+                select your dish to enjoy it sooner 😊
+              </NoOrder>
+            )}
           </OrdersWrap>
         </CartWrap>
-        <BtnSubmit type="submit">Submit</BtnSubmit>
       </Form>
     </Formik>
   );

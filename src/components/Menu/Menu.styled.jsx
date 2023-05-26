@@ -6,11 +6,13 @@ export const MenuWrap = styled.ul`
   flex-wrap: wrap;
   gap: 30px;
   list-style-type: none;
+  padding: 20px 30px;
 
   @media screen and (min-width: 768px) {
     flex-direction: row;
     flex-wrap: wrap;
     gap: 30px;
+    padding: 25px 40px;
   }
 
   @media screen and (min-width: 1440px) {

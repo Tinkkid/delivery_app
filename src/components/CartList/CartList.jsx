@@ -1,10 +1,6 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import {
-  removeFromCart,
-  changeQuantity,
-  getCartTotal,
-} from '../../redux/cartSlice';
+import { removeFromCart, changeQuantity } from '../../redux/cartSlice';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -14,20 +10,11 @@ import Typography from '@mui/material/Typography';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
-import { OrderList, CartWrap } from './CartList.styled';
+import { OrderList, CartWrap, styleBtn } from './CartList.styled';
 
 const CartList = () => {
   const dispatch = useDispatch();
   const { data: cartProducts } = useSelector(state => state.cart);
-
-  useEffect(() => {
-    dispatch(getCartTotal());
-    // eslint-disable-next-line
-  }, [useSelector(state => state.cart)]);
-
-  const calculatePrice = cartProducts
-    .map(item => item.price * item.quantity)
-    .reduce((prev, curr) => prev + curr, 0);
 
   return (
     <CartWrap>
@@ -57,9 +44,10 @@ const CartList = () => {
                 >
                   <RemoveCircleIcon />
                 </Button>
-                <Typography variant="button">{product.quantity}</Typography>
+                <Typography variant="h5">{product.quantity}</Typography>
                 <Button
                   size="small"
+                  sx={styleBtn.btn}
                   onClick={() =>
                     dispatch(changeQuantity({ id: product.id, type: 'INC' }))
                   }
@@ -68,6 +56,7 @@ const CartList = () => {
                 </Button>
                 <Button
                   size="small"
+                  sx={styleBtn.removeBtn}
                   onClick={() => dispatch(removeFromCart(product.id))}
                 >
                   <DeleteForeverIcon />
@@ -77,7 +66,6 @@ const CartList = () => {
           </OrderList>
         );
       })}
-      <div>Total price {calculatePrice} UAH</div>
     </CartWrap>
   );
 };

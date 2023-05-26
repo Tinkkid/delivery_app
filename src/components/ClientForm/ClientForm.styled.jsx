@@ -16,12 +16,15 @@ export const FormWrap = styled.div`
 
 export const OrdersWrap = styled.div`
   display: flex;
+  flex-direction: column;
+  gap: 15px;
+  text-align: center;
 `;
 
 export const CartWrap = styled.div`
   display: flex;
-  justify-content: center;
-  gap: 50px;
+  justify-content: space-between;
+  gap: 100px;
 `;
 
 export const Input = styled(Field)`
@@ -49,7 +52,8 @@ export const LabelInput = styled.label`
 export const BtnSubmit = styled.button`
   border-radius: 4px;
   height: 44px;
-  margin-top: 40px;
+  margin-left: 40px;
+  margin-top: 20px;
   font-size: 16px;
   font-weight: 600;
   text-transform: uppercase;
@@ -92,4 +96,16 @@ export const TitleLable = styled.span`
   margin-left: 20px;
   text-align: start;
   font-size: 24px;
+`;
+
+export const TotalPrice = styled.div`
+  text-align: start;
+  font-size: 28px;
+  font-weight: 700;
+`;
+
+export const NoOrder = styled.p`
+  margin-top: 20%;
+  font-size: 28px;
+  font-weight: 700;
 `;

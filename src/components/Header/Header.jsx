@@ -1,6 +1,7 @@
 import { AppBar, Toolbar, Typography } from '@mui/material';
 import { styleBar, StyledLink } from './Header.styled';
 import { useSelector } from 'react-redux';
+import React from 'react';
 import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
 
 const Header = () => {

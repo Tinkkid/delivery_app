@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import Notiflix from 'notiflix';
 
 const getFromLocalStorage = () => {
-  let cart = localStorage.getItem('cart');
+  const cart = localStorage.getItem('cart');
   if (cart) {
     return JSON.parse(localStorage.getItem('cart'));
   } else {

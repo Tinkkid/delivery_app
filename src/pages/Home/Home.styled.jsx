@@ -6,6 +6,6 @@ export const Container = styled.section`
   text-align: center;
   margin: 0 auto;
   width: fit-content;
-  padding: 60px 30px;
-  gap: 50px;
+  padding: 60px 40px;
+  gap: 100px;
 `;
